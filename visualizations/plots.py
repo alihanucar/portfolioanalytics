@@ -58,14 +58,6 @@ def basic_portfolio(stock_df):
     # Graphs the cumulative returns
     st.line_chart(cumulative_return)
 
-#def portfolio_pie(symbol_pie=('SOXX,LIT,IVV,DBE,BTC-USD,ETH-USD,AVAX-USD'), weights_pie=('0.2,0.35,0.1,0.1,0.05,0.10,0.10')):
-    #symbols = symbol_pie.split(',')
-    #weights = [float(w) for w in weights_pie.split(',')]
-    #df = pd.DataFrame({'Symbol': symbols, 'Weight': weights})
-    #fig, ax = plt.subplots(figsize=(8, 8))
-    #ax.pie(df['Weight'], labels=df['Symbol'], autopct='%1.1f%%')
-    #ax.set_title('Portfolio Composition')
-    #st.pyplot(fig)
 
 def portfolio_pie(choices):
     """Uses the stock dataframe and the chosen weights from choices to calculate and graph the portfolio composition as a pie chart.
@@ -81,12 +73,14 @@ def portfolio_pie(choices):
     
     # Creates a pie chart of the portfolio composition using the sorted symbols and weights
     fig, ax = plt.subplots()
-    ax.pie(sorted_weights, labels=sorted_symbols, autopct='%1.1f%%')
+    ax.pie(sorted_weights, labels=sorted_symbols, autopct='%1.1f%%', textprops={'color': 'white', 'fontsize': 14})
     ax.axis('equal')
-    ax.set_title('Portfolio Composition')
+    ax.set_title('Portfolio Composition', color='white', fontsize=16)
+    ax.patch.set_alpha(0.0)
     
     # Displays the chart on streamlit
-    st.pyplot(fig)
+    st.pyplot(fig, transparent=True)
+    
 
 def display_heat_map(stock_df):
     """Uses the stock dataframe to calculate the correlations between the different assets and display them as a heatmap.
