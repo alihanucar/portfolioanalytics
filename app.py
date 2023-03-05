@@ -6,6 +6,7 @@ from rest_api.fetch_data import (get_symbol_data)
 from visualizations.plots import (
     beta,
     basic_portfolio,
+    display_portfolio_composition,
     display_portfolio_return,
     display_heat_map,
     monte_carlo
