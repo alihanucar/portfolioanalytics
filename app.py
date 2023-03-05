@@ -17,7 +17,7 @@ def load_heading():
         Provides instructions to the user
     """
     with st.container():
-        st.title('Grayscale Analysis')
+        st.title('Alihan Ucar Portfolio Tracker')
         header = st.subheader('This App performs historical portfolio analysis and future analysis with Monte Carlo Simulation')
         st.subheader('Please read the instructions carefully and enjoy!')
         # st.text('This is some text.')
@@ -41,17 +41,17 @@ def get_choices():
     warning_1 = st.sidebar.write("Max yrs you should go back is 5!")
     years_back = st.sidebar.number_input('How Many Years Back From Today?', min_value=1, max_value=5, value=1)
 
-    warning_2 = st.sidebar.write("You must enter 1 Index such as SPY, 3 Stock, and 2 Crypto Symbol names. Please refer to Yahoo Finance for a list of applicable ticker symbols.  Type the symbol EXACTLY as provided by Yahoo Finance.")
+    #warning_2 = st.sidebar.write("You must enter 1 Index such as SPY, 3 Stock, and 2 Crypto Symbol names. Please refer to Yahoo Finance for a list of applicable ticker symbols.  Type the symbol EXACTLY as provided by Yahoo Finance.")
         
-    tickers = st.sidebar.text_input('Enter 1 index and 3 stock symbols.', 'SPY,AMZN,TSLA,NVDA')
+    tickers = ('SPY,AMZN,TSLA,NVDA')
 
-    crypto_symbols = st.sidebar.text_input('Enter 2 crypto symbols only as below', 'BTC-USD,ETH-USD')
+    crypto_symbols = ('BTC-USD,ETH-USD')
     # 'SPY,AMZN,TSLA,NVDA,AAPL,BTC-USD,ETH-USD'
 
     # Set the weights
-    weights_str = st.sidebar.text_input('Enter The Investment Weights', '0.2,0.2 ,0.2,0.2,0.1,0.1')
+    weights_str = ('0.2,0.2 ,0.2,0.2,0.1,0.1')
     # Set Initial Investment
-    investment = st.sidebar.number_input('Enter The Initial Investment', min_value=5000, max_value=25000, value=5000)
+    investment = (1000))
     # Set the investment forecast_years
     forecast_years = st.sidebar.number_input('Enter The Forecast Years For The Simulation', min_value=5, max_value=15, value=5)
     # Set the number of simulations to run_years
@@ -98,9 +98,9 @@ def get_choices():
 
         if reset:
             # Clears all singleton caches:
-            tickers = st.sidebar.text_input('Enter 1 index and 3 stock symbols.', 'SPY,AMZN,TSLA,NVDA')
-            crypto_symbols = st.sidebar.text_input('Enter 2 crypto symbols only as below', 'BTC-USD,ETH-USD')
-            weights_str = st.sidebar.text_input('Enter The Investment Weights', '0.2,0.2 ,0.2,0.2,0.1,0.1')
+            tickers = ('SPY,AMZN,TSLA,NVDA')
+            crypto_symbols = ('BTC-USD,ETH-USD')
+            weights_str = ('0.2,0.2 ,0.2,0.2,0.1,0.1')
             st.experimental_singleton.clear()
 
         else:    
