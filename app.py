@@ -21,7 +21,7 @@ def load_heading():
         st.title('Alihan Ucar Portfolio Tracker')
         header = st.subheader('This App performs historical portfolio analysis and future analysis with Monte Carlo Simulation')
         st.subheader('Asset Allocation')
-        # st.text('This is some text.')
+        st.text('This application was originally developed by the GitHub user Analitico-771, and has been forked and modified by Alihan Ucar for personal use.')
 
 
 def get_choices():
