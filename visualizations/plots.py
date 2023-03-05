@@ -73,14 +73,18 @@ def portfolio_pie(choices):
     
     # Creates a pie chart of the portfolio composition using the sorted symbols and weights
     fig, ax = plt.subplots()
-    ax.pie(sorted_weights, labels=sorted_symbols, autopct='%1.1f%%', textprops={'color': 'white', 'fontsize': 14})
+    wedges, _, autotexts = ax.pie(sorted_weights, labels=sorted_symbols, autopct='%1.1f%%', textprops={'color': 'white', 'fontsize': 14})
     ax.axis('equal')
     ax.set_title('Portfolio Composition', color='white', fontsize=16)
     ax.patch.set_alpha(0.0)
     
+    # Sets the value labels inside the pie chart
+    for autotext in autotexts:
+        autotext.set_color('white')
+        autotext.set_fontsize(12)
+    
     # Displays the chart on streamlit
     st.pyplot(fig, transparent=True)
-    
 
 def display_heat_map(stock_df):
     """Uses the stock dataframe to calculate the correlations between the different assets and display them as a heatmap.
