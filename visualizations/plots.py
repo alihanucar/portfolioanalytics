@@ -58,15 +58,14 @@ def basic_portfolio(stock_df):
     # Graphs the cumulative returns
     st.line_chart(cumulative_return)
 
-#def portfolio_pie(choices):
-    #"""Uses the symbol weights to graph the portfolio composition as a pie chart.
-    #"""
-    #symbols, weights = choices.values()
-    #df = pd.DataFrame({'Symbol': symbols, 'Weight': weights})
-    #fig, ax = plt.subplots(figsize=(8, 8))
-    #ax = sns.pieplot(data=df, x='Weight', labels=df['Symbol'], autopct='%1.1f%%')
-    #ax.set_title('Portfolio Composition')
-    #st.pyplot(fig)
+def portfolio_pie(symbol_pie=('SPY,SOXX,LIT,IVV,DBE,BTC-USD,ETH-USD,AVAX-USD'), weights_pie=('0.0,0.2,0.35,0.1,0.1,0.05,0.10,0.10')):
+    symbols = symbol_pie.split(',')
+    weights = [float(w) for w in weights_pie.split(',')]
+    df = pd.DataFrame({'Symbol': symbols, 'Weight': weights})
+    fig, ax = plt.subplots(figsize=(8, 8))
+    ax = sns.pieplot(data=df, x='Weight', labels=df['Symbol'], autopct='%1.1f%%')
+    ax.set_title('Portfolio Composition')
+    st.pyplot(fig)
 
 
 
@@ -105,7 +104,7 @@ def display_portfolio_return(stock_df, choices):
     cumulative_profit = investment * cumulative_returns
 
     # Graphs the result, and displays it with a header on streamlit
-    st.subheader('Portfolio Historical Cumulative Returns Based On Inputs!')
+    st.subheader('Portfolio Historical Cumulative Returns')
     st.line_chart(cumulative_profit)
 
 

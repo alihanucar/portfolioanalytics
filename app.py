@@ -43,17 +43,17 @@ def get_choices():
 
     #warning_2 = st.sidebar.write("You must enter 1 Index such as SPY, 3 Stock, and 2 Crypto Symbol names. Please refer to Yahoo Finance for a list of applicable ticker symbols.  Type the symbol EXACTLY as provided by Yahoo Finance.")
         
-    tickers = ('SPY,SOXX,IVV,DBE')
+    tickers = ('SPY,SOXX,LIT,IVV,DBE')
 
     crypto_symbols = ('BTC-USD,ETH-USD,AVAX-USD')
     # 'SPY,SOXX,IVV,DBE,BTC-USD,ETH-USD, AVAX-USD'
 
     # Set the weights
-    weights_str = ('0.0,0.2,0.45,0.1,0.05,0.10,0.10')
+    weights_str = ('0.0,0.2,0.35,,0.1,0.1,0.05,0.10,0.10')
     # Set Initial Investment
     investment = (1000)
     # Set the investment forecast_years
-    forecast_years = st.sidebar.number_input('Enter The Forecast Years For The Simulation', min_value=5, max_value=15, value=5)
+    forecast_years = st.sidebar.number_input('Enter The Forecast Years For The Simulation', min_value=2, max_value=15, value=5)
     # Set the number of simulations to run_years
     st.sidebar.write("We recommend you run 500 sim runs. 250 is minimum and 1000 is max")
     sim_runs = st.sidebar.number_input('Enter The Number Of Simulations To Run', min_value=250, max_value=1000, value=250)
@@ -130,7 +130,7 @@ def run():
     load_heading()
     choices = get_choices()
     if choices:
-        #portfolio_pie(choices['choices'])     
+        portfolio_pie(symbol_pie, weights_pie)     
         beta(choices['combined_df'])
         basic_portfolio(choices['combined_df'])
         display_heat_map(choices['combined_df'])
