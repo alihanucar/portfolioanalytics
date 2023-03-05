@@ -6,6 +6,7 @@ from rest_api.fetch_data import (get_symbol_data)
 from visualizations.plots import (
     beta,
     basic_portfolio,
+    portfolio_pie,
     display_portfolio_return,
     display_heat_map,
     monte_carlo
@@ -130,7 +131,7 @@ def run():
     load_heading()
     choices = get_choices()
     if choices:
-        #portfolio_pie(choices['choices'])     
+        portfolio_pie()     
         beta(choices['combined_df'])
         basic_portfolio(choices['combined_df'])
         display_heat_map(choices['combined_df'])
