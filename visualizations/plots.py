@@ -62,10 +62,9 @@ def portfolio_pie(choices):
     """Uses the symbol weights to graph the portfolio composition as a pie chart.
     """
     symbols, weights = choices.values()
-    fig, ax = plt.subplots(figsize=(8, 8))
-    ax.pie(weights.values(), labels=symbols, autopct='%1.1f%%')
-    ax.set_title('Portfolio Allocation')
-    plt.show()
+    df = pd.DataFrame({'Symbol': symbols, 'Weight': weights.values()})
+    fig = px.pie(df, values='Weight', names='Symbol', title='Portfolio Composition')
+    st.plotly_chart(fig)
 
 
 
