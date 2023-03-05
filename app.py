@@ -93,8 +93,8 @@ def get_choices():
             #reset_app('Check Stock Tickers')
         #if len(crypto_symbols_list) != 2:
             #reset_app('Check Crypto Tickers')
-        #if sum(weights) != 1:
-            #reset_app('Check Weights')
+        if sum(weights) != 1:
+            reset_app('Check Weights')
 
         #if reset:
             # Clears all singleton caches:
