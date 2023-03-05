@@ -67,7 +67,7 @@ def portfolio_pie(choices):
     # Creates a dictionary of the symbols and their corresponding weights
     portfolio_weights = dict(zip(symbols, weights))
     # Removes the first key-value(index) pair from the dictionary
-    portfolio_weights.popitem()
+    del portfolio_weights['SPY']
     # Sorts the dictionary by value in descending order
     sorted_weights = sorted(portfolio_weights.items(), key=lambda x: x[1], reverse=True)
     # Extracts the sorted symbols and weights
