@@ -70,12 +70,15 @@ def portfolio_pie(choices):
     sorted_weights = sorted(portfolio_weights.items(), key=lambda x: x[1], reverse=True)
     # Extracts the sorted symbols and weights
     sorted_symbols, sorted_weights = zip(*sorted_weights)
+
+    # Creates a list of colors using the viridis color map
+    colors = plt.cm.viridis.colors
     
     # Creates a pie chart of the portfolio composition using the sorted symbols and weights
     fig, ax = plt.subplots()
-    ax.pie(sorted_weights, labels=sorted_symbols, autopct='%1.1f%%', textprops={'color': 'white', 'fontsize': 12})
+    patches, texts, _ = ax.pie(sorted_weights, labels=sorted_symbols, autopct='%1.1f%%', colors=colors[:len(sorted_weights)], textprops={'color': 'white', 'fontsize': 8})
     ax.axis('equal')
-    ax.set_title('Portfolio Composition', color='white', fontsize=16)
+    ax.set_title('Portfolio Composition', color='white', fontsize=14)
     ax.patch.set_alpha(0.0)
     
     # Displays the chart on streamlit
