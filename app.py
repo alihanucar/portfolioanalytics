@@ -20,7 +20,7 @@ def load_heading():
     with st.container():
         st.title('Alihan Ucar Portfolio Tracker')
         header = st.subheader('This App performs historical portfolio analysis and future analysis with Monte Carlo Simulation')
-        st.subheader('Please read the instructions carefully and enjoy!')
+        st.subheader('Asset Allocation')
         # st.text('This is some text.')
 
 

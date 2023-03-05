@@ -66,6 +66,8 @@ def portfolio_pie(choices):
     
     # Creates a dictionary of the symbols and their corresponding weights
     portfolio_weights = dict(zip(symbols, weights))
+    # Removes the first key-value(index) pair from the dictionary
+    portfolio_weights.popitem()
     # Sorts the dictionary by value in descending order
     sorted_weights = sorted(portfolio_weights.items(), key=lambda x: x[1], reverse=True)
     # Extracts the sorted symbols and weights
@@ -76,9 +78,9 @@ def portfolio_pie(choices):
     
     # Creates a pie chart of the portfolio composition using the sorted symbols and weights
     fig, ax = plt.subplots()
-    patches, texts, _ = ax.pie(sorted_weights, labels=sorted_symbols, autopct='%1.1f%%', colors=colors[:len(sorted_weights)], textprops={'color': 'white', 'fontsize': 8})
+    patches, texts, _ = ax.pie(sorted_weights, labels=sorted_symbols, autopct='%1.1f%%', colors=colors[:len(sorted_weights)], textprops={'color': 'white', 'fontsize': 12})
     ax.axis('equal')
-    ax.set_title('Portfolio Composition', color='white', fontsize=14)
+    #ax.set_title('Portfolio Composition', color='white', fontsize=14)
     ax.patch.set_alpha(0.0)
     
     # Displays the chart on streamlit
