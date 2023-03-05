@@ -6,11 +6,10 @@ from rest_api.fetch_data import (get_symbol_data)
 from visualizations.plots import (
     beta,
     basic_portfolio,
-    display_portfolio_composition,
     display_portfolio_return,
     display_heat_map,
     monte_carlo
-    )
+)
 
 
 def load_heading():
@@ -94,8 +93,8 @@ def get_choices():
             #reset_app('Check Stock Tickers')
         #if len(crypto_symbols_list) != 2:
             #reset_app('Check Crypto Tickers')
-        if sum(weights) != 1:
-            reset_app('Check Weights')
+        #if sum(weights) != 1:
+            #reset_app('Check Weights')
 
         #if reset:
             # Clears all singleton caches:
@@ -131,7 +130,7 @@ def run():
     load_heading()
     choices = get_choices()
     if choices:
-        display_portfolio_composition(choices['combined_df'], choices['choices'])   
+        #portfolio_pie(choices['choices'])     
         beta(choices['combined_df'])
         basic_portfolio(choices['combined_df'])
         display_heat_map(choices['combined_df'])
