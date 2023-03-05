@@ -58,7 +58,7 @@ def basic_portfolio(stock_df):
     # Graphs the cumulative returns
     st.line_chart(cumulative_return)
 
-def portfolio_pie(choices):
+def portfolio_pie(stock_df, choices):
     """Uses the symbol weights to graph the portfolio composition as a pie chart.
     """
     symbols, weights = choices.values()
