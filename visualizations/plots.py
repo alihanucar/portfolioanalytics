@@ -89,23 +89,26 @@ def display_heat_map(stock_df):
     st.dataframe(price_correlation)
 
 
-def display_portfolio_return(stock_df, choices):
-    """Uses the stock dataframe and the chosen weights from choices to calculate and graph the historical cumulative portfolio return.
+def display_portfolio_composition(stock_df, choices):
+    """Uses the stock dataframe and the chosen weights from choices to calculate and graph the portfolio composition as a pie chart.
     """
-    user_start_date, start_date, end_date, symbols, weights, investment, forecast_years, sim_runs  = choices.values()
+    _, _, _, symbols, weights, _, _, _ = choices.values()
     
-    # Calculates the daily percentage returns of the 
-    daily_returns = stock_df['stock_df'].pct_change().dropna()
-    # Applies the weights of each asset to the portfolio
-    portfolio_returns = daily_returns.dot(weights)
-    # Calculates the cumulative weighted portfolio return
-    cumulative_returns = (1 + portfolio_returns).cumprod()
-    # Calculates the cumulative profit using the cumulative portfolio return
-    cumulative_profit = investment * cumulative_returns
-
-    # Graphs the result, and displays it with a header on streamlit
-    st.subheader('Portfolio Historical Cumulative Returns')
-    st.line_chart(cumulative_profit)
+    # Creates a dictionary of the symbols and their corresponding weights
+    portfolio_weights = dict(zip(symbols, weights))
+    # Sorts the dictionary by value in descending order
+    sorted_weights = sorted(portfolio_weights.items(), key=lambda x: x[1], reverse=True)
+    # Extracts the sorted symbols and weights
+    sorted_symbols, sorted_weights = zip(*sorted_weights)
+    
+    # Creates a pie chart of the portfolio composition using the sorted symbols and weights
+    fig, ax = plt.subplots()
+    ax.pie(sorted_weights, labels=sorted_symbols, autopct='%1.1f%%')
+    ax.axis('equal')
+    ax.set_title('Portfolio Allocation')
+    
+    # Displays the chart on streamlit
+    st.pyplot(fig)
 
 
 def monte_carlo(mc_data_df, choices):
