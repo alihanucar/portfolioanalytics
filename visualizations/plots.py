@@ -58,17 +58,35 @@ def basic_portfolio(stock_df):
     # Graphs the cumulative returns
     st.line_chart(cumulative_return)
 
-def portfolio_pie(symbol_pie=('SOXX,LIT,IVV,DBE,BTC-USD,ETH-USD,AVAX-USD'), weights_pie=('0.2,0.35,0.1,0.1,0.05,0.10,0.10')):
-    symbols = symbol_pie.split(',')
-    weights = [float(w) for w in weights_pie.split(',')]
-    df = pd.DataFrame({'Symbol': symbols, 'Weight': weights})
-    fig, ax = plt.subplots(figsize=(8, 8))
-    ax.pie(df['Weight'], labels=df['Symbol'], autopct='%1.1f%%')
+#def portfolio_pie(symbol_pie=('SOXX,LIT,IVV,DBE,BTC-USD,ETH-USD,AVAX-USD'), weights_pie=('0.2,0.35,0.1,0.1,0.05,0.10,0.10')):
+    #symbols = symbol_pie.split(',')
+    #weights = [float(w) for w in weights_pie.split(',')]
+    #df = pd.DataFrame({'Symbol': symbols, 'Weight': weights})
+    #fig, ax = plt.subplots(figsize=(8, 8))
+    #ax.pie(df['Weight'], labels=df['Symbol'], autopct='%1.1f%%')
+    #ax.set_title('Portfolio Composition')
+    #st.pyplot(fig)
+
+def portfolio_pie(choices):
+    """Uses the stock dataframe and the chosen weights from choices to calculate and graph the portfolio composition as a pie chart.
+    """
+    _, _, _, symbols, weights, _, _, _ = choices.values()
+    
+    # Creates a dictionary of the symbols and their corresponding weights
+    portfolio_weights = dict(zip(symbols, weights))
+    # Sorts the dictionary by value in descending order
+    sorted_weights = sorted(portfolio_weights.items(), key=lambda x: x[1], reverse=True)
+    # Extracts the sorted symbols and weights
+    sorted_symbols, sorted_weights = zip(*sorted_weights)
+    
+    # Creates a pie chart of the portfolio composition using the sorted symbols and weights
+    fig, ax = plt.subplots()
+    ax.pie(sorted_weights, labels=sorted_symbols, autopct='%1.1f%%')
+    ax.axis('equal')
     ax.set_title('Portfolio Composition')
+    
+    # Displays the chart on streamlit
     st.pyplot(fig)
-
-
-
 
 def display_heat_map(stock_df):
     """Uses the stock dataframe to calculate the correlations between the different assets and display them as a heatmap.
