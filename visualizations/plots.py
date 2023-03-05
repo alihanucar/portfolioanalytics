@@ -58,11 +58,13 @@ def basic_portfolio(stock_df):
     # Graphs the cumulative returns
     st.line_chart(cumulative_return)
 
-def portfolio_pie(stock_df, choices):
+def portfolio_pie(choices):
     """Uses the symbol weights to graph the portfolio composition as a pie chart.
     """
     symbols, weights = choices.values()
-    df = pd.DataFrame({'Symbol': symbols, 'Weight': weights.values()})
+    Symbols = symbols
+    Weights = weights
+    df = pd.DataFrame({'Symbol': Symbols, 'Weight': Weights.values()})
     fig = px.pie(df, values='Weight', names='Symbol', title='Portfolio Composition')
     st.plotly_chart(fig)
 
