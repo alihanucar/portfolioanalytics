@@ -1,8 +1,6 @@
 
 import pandas as pd
 import streamlit as st
-st.beta_set_page_config(page_title = "Portfolio Analytics", page_icon="💸")
-
 from datetime import date, timedelta
 from rest_api.fetch_data import (get_symbol_data)
 from visualizations.plots import (
@@ -20,7 +18,6 @@ def load_heading():
         Provides instructions to the user
     """
     with st.container():
-        
         st.title('Alihan Ucar Portfolio Tracker')
         header = st.subheader('This App performs historical portfolio analysis and future analysis with Monte Carlo Simulation')
         st.subheader('Asset Allocation')
