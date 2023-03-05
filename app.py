@@ -51,7 +51,7 @@ def get_choices():
     # Set the weights
     weights_str = ('0.2,0.2 ,0.2,0.2,0.1,0.1')
     # Set Initial Investment
-    investment = (1000))
+    investment = (1000)
     # Set the investment forecast_years
     forecast_years = st.sidebar.number_input('Enter The Forecast Years For The Simulation', min_value=5, max_value=15, value=5)
     # Set the number of simulations to run_years
