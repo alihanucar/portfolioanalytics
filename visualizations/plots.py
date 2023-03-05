@@ -58,6 +58,17 @@ def basic_portfolio(stock_df):
     # Graphs the cumulative returns
     st.line_chart(cumulative_return)
 
+def portfolio_pie(choices):
+    """Uses the symbol weights to graph the portfolio composition as a pie chart.
+    """
+    symbols, weights = choices.values()
+    fig, ax = plt.subplots(figsize=(8, 8))
+    ax.pie(weights.values(), labels=symbols, autopct='%1.1f%%')
+    ax.set_title('Portfolio Allocation')
+    plt.show()
+
+
+
 
 def display_heat_map(stock_df):
     """Uses the stock dataframe to calculate the correlations between the different assets and display them as a heatmap.
