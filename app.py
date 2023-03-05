@@ -50,7 +50,7 @@ def get_choices():
     # 'SPY,SOXX,IVV,DBE,BTC-USD,ETH-USD, AVAX-USD'
 
     # Set the weights
-    weights_str = ('0.0,0.2,0.45,0.1,0.05,0.10,0.10')
+    weights_str = ('0.0,0.15,0.55,0.15,0.05,0.05,0.05')
     # Set Initial Investment
     investment = (1000)
     # Set the investment forecast_years
