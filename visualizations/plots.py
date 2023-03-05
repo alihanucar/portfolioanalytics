@@ -72,7 +72,7 @@ def portfolio_pie(choices):
     sorted_symbols, sorted_weights = zip(*sorted_weights)
 
     # Creates a list of colors using the viridis color map
-    colors = plt.cm.Paired.colors
+    colors = plt.cm.tab20c.colors
     
     # Creates a pie chart of the portfolio composition using the sorted symbols and weights
     fig, ax = plt.subplots()
