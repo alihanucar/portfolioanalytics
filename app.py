@@ -11,13 +11,14 @@ from visualizations.plots import (
     display_heat_map,
     monte_carlo
 )
-st.beta_set_page_config(page_title = "Portfolio Analytics", page_icon="💸")
+
 
 def load_heading():
     """The function that displays the heading.
         Provides instructions to the user
     """
     with st.container():
+        st.beta_set_page_config(page_title = "Portfolio Analytics", page_icon="💸")
         st.title('Alihan Ucar Portfolio Tracker')
         header = st.subheader('This App performs historical portfolio analysis and future analysis with Monte Carlo Simulation')
         st.subheader('Asset Allocation')
