@@ -10,7 +10,7 @@ from visualizations.plots import (
     display_portfolio_return,
     display_heat_map,
     monte_carlo
-)
+    )
 
 
 def load_heading():
