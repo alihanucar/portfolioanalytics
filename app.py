@@ -43,13 +43,13 @@ def get_choices():
 
     #warning_2 = st.sidebar.write("You must enter 1 Index such as SPY, 3 Stock, and 2 Crypto Symbol names. Please refer to Yahoo Finance for a list of applicable ticker symbols.  Type the symbol EXACTLY as provided by Yahoo Finance.")
         
-    tickers = ('SPY,AMZN,TSLA,NVDA')
+    tickers = ('SPY,SOXX,IVV,DBE')
 
-    crypto_symbols = ('BTC-USD,ETH-USD')
-    # 'SPY,AMZN,TSLA,NVDA,AAPL,BTC-USD,ETH-USD'
+    crypto_symbols = ('BTC-USD,ETH-USD,AVAX-USD')
+    # 'SPY,SOXX,IVV,DBE,BTC-USD,ETH-USD, AVAX-USD'
 
     # Set the weights
-    weights_str = ('0.2,0.2 ,0.2,0.2,0.1,0.1')
+    weights_str = ('0.2,0.2,0.25,0.1,0.05,0.10,0.10')
     # Set Initial Investment
     investment = (1000)
     # Set the investment forecast_years
@@ -89,19 +89,19 @@ def get_choices():
             weights.append(float(item))
 
         # CheckThe User Input
-        if len(tickers_list) != 4:
-            reset_app('Check Stock Tickers')
-        if len(crypto_symbols_list) != 2:
-            reset_app('Check Crypto Tickers')
-        if sum(weights) != 1:
-            reset_app('Check Weights')
+        #if len(tickers_list) != 4:
+            #reset_app('Check Stock Tickers')
+        #if len(crypto_symbols_list) != 2:
+            #reset_app('Check Crypto Tickers')
+        #if sum(weights) != 1:
+            #reset_app('Check Weights')
 
-        if reset:
+        #if reset:
             # Clears all singleton caches:
-            tickers = ('SPY,AMZN,TSLA,NVDA')
-            crypto_symbols = ('BTC-USD,ETH-USD')
-            weights_str = ('0.2,0.2 ,0.2,0.2,0.1,0.1')
-            st.experimental_singleton.clear()
+            #tickers = ('SPY,AMZN,TSLA,NVDA')
+            #crypto_symbols = ('BTC-USD,ETH-USD')
+            #weights_str = ('0.2,0.2,0.25,0.1,0.05,0.10,0.10')
+            #st.experimental_singleton.clear()
 
         else:    
             # Submit an object with choices
