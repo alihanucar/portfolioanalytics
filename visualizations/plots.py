@@ -71,25 +71,16 @@ def portfolio_pie(choices):
     # Extracts the sorted symbols and weights
     sorted_symbols, sorted_weights = zip(*sorted_weights)
     
-    # Defines the neon colors for the pie chart
-    neon_colors = ['#00ffff', '#ff00ff', '#00ff00', '#ffff00', '#ff0000', '#00ff7f', '#f0e68c', '#ff4500', '#1e90ff', '#ff69b4']
-    # Defines the color map for the pie chart
-    color_map = mcolors.ListedColormap(neon_colors)
-    
     # Creates a pie chart of the portfolio composition using the sorted symbols and weights
     fig, ax = plt.subplots()
-    wedges, _, autotexts = ax.pie(sorted_weights, labels=sorted_symbols, autopct='%1.1f%%', textprops={'color': 'white', 'fontsize': 14}, colors=color_map(range(len(sorted_symbols))))
+    ax.pie(sorted_weights, labels=sorted_symbols, autopct='%1.1f%%', textprops={'color': 'white', 'fontsize': 12})
     ax.axis('equal')
     ax.set_title('Portfolio Composition', color='white', fontsize=16)
     ax.patch.set_alpha(0.0)
     
-    # Sets the value labels inside the pie chart
-    for autotext in autotexts:
-        autotext.set_color('white')
-        autotext.set_fontsize(12)
-    
     # Displays the chart on streamlit
     st.pyplot(fig, transparent=True)
+    
 
 def display_heat_map(stock_df):
     """Uses the stock dataframe to calculate the correlations between the different assets and display them as a heatmap.
