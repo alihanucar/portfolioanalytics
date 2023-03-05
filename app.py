@@ -130,7 +130,7 @@ def run():
     load_heading()
     choices = get_choices()
     if choices:
-        #portfolio_pie(choices['choices'])     
+        portfolio_pie(symbol_pie, weights_pie)     
         beta(choices['combined_df'])
         basic_portfolio(choices['combined_df'])
         display_heat_map(choices['combined_df'])
