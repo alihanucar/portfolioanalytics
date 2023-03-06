@@ -78,7 +78,7 @@ def portfolio_pie(choices):
     
     # Creates a pie chart of the portfolio composition using the sorted symbols and weights
     fig, ax = plt.subplots()
-    patches, texts, _ = ax.pie(sorted_weights, labels=sorted_symbols, autopct='%1.1f%%', colors=colors[:len(sorted_weights)], textprops={'color': 'white', 'fontsize': 12})
+    patches, texts, _ = ax.pie(sorted_weights, labels=sorted_symbols, autopct='%1.1f%%', colors=colors[:len(sorted_weights)], textprops={'color': 'green', 'fontsize': 12})
     ax.axis('equal')
     #ax.set_title('Portfolio Composition', color='white', fontsize=14)
     ax.patch.set_alpha(0.0)
